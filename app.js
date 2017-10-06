@@ -48,7 +48,9 @@
 							$('#friends').append('<img  width="50px" src="' + friends[i].picture.data.url + '" />');
 						}
 						$("#play").click(function () {
-							window.location.href = "app.php?id=" + response.id + "&url=" + encodeURIComponent(response.picture.data.url) + "&fname=" + response.first_name + "&lname=" + response.last_name+time();
+							var d = new Date();
+							var time = d.getTime();
+							window.location.href = "app.php?id=" + response.id + "&url=" + encodeURIComponent(response.picture.data.url) + "&fname=" + response.first_name + "&lname=" + response.last_name+time;
 						});
 
 						$(function () {
