@@ -32,6 +32,7 @@
             }
         </style>
     </head>
+    <a href="https://github.com/niawjunior/fb-app"><img style="position: absolute; top: 0; right: 0; border: 0; width: 149px; height: 149px;" src="img/fork-me.png" alt="Fork me on GitHub"></a>
     <body>
         <div id="fb-root"></div>
         <div class="container" style="margin-top:5%">
