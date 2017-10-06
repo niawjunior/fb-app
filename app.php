@@ -8,11 +8,10 @@
     <?php 
     date_default_timezone_set("Asia/Bangkok");
     $id = $_GET['id'];
-    $time = date('Y-m-d-H');
         if($_GET['id']){
             $title = $_GET['fname'];
             $url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-            $images = 'http://' .$_SERVER['HTTP_HOST'].'/app/img/'.$_GET['id'].$time.'.jpg';
+            $images = 'http://' .$_SERVER['HTTP_HOST'].'/app/img/'.$_GET['id'].'share.jpg';
             $text = 'เช็คเพื่อนใหม่ของคุณได้ที่นี่ ->';
         }
     ?>
@@ -73,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $img = $_POST['img'];
     $id = $_POST['id'];
     $img = substr(explode(";",$img)[1], 7);
-    $target=$id.$time.'.jpg';
+    $target=$id.'share.jpg';
     file_put_contents('img/'.$target, base64_decode($img)); 
 }
 ?>

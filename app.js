@@ -51,27 +51,28 @@
 						$("#play").click(function () {
 							window.location.href = "app.php?id=" + response.id + "&url=" + encodeURIComponent(response.picture.data.url) + "&fname=" + response.first_name + "&lname=" + response.last_name;
 						});
-						$("#share").click(function () {
-							$(function () {
-								var captureArea = $("#capture-area");
-								html2canvas(captureArea, {
-									onrendered: function (canvas) {
-										$("#capture-area").html("").append(canvas);
-										var img = canvas.toDataURL("image/jpg", 1.0);
-										$.ajax({
-											type: 'POST',
-											url: "app.php",
-											data: {
-												"img": img,
-												"id": response.id
-											},
-											success: function (data) {
-											}
-										});
-									},
-									useCORS: true
-								});
+
+						$(function () {
+							var captureArea = $("#capture-area");
+							html2canvas(captureArea, {
+								onrendered: function (canvas) {
+									$("#capture-area").html("").append(canvas);
+									var img = canvas.toDataURL("image/jpg", 1.0);
+									$.ajax({
+										type: 'POST',
+										url: "app.php",
+										data: {
+											"img": img,
+											"id": response.id
+										},
+										success: function (data) {
+										}
+									});
+								},
+								useCORS: true
 							});
+						});
+						$("#share").click(function () {
 							FB.ui({
 								method: 'feed',
 								link: document.URL,
