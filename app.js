@@ -57,7 +57,7 @@
 								html2canvas(captureArea, {
 									onrendered: function (canvas) {
 										$("#capture-area").html("").append(canvas);
-										var img = canvas.toDataURL("image/png", 1.0);
+										var img = canvas.toDataURL("image/jpg", 1.0);
 										$.ajax({
 											type: 'POST',
 											url: "app.php",

@@ -6,12 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>App</title>
     <?php 
+    date_default_timezone_set("Asia/Bangkok");
     $id = $_GET['id'];
-
+    $time = date('Y-m-d-H');
         if($_GET['id']){
             $title = $_GET['fname'];
             $url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-            $images = 'http://' .$_SERVER['HTTP_HOST'].'/app/img/'.$_GET['id'].'.png';
+            $images = 'http://' .$_SERVER['HTTP_HOST'].'/app/img/'.$_GET['id'].$time.'.jpg';
             $text = 'เช็คเพื่อนใหม่ของคุณได้ที่นี่ ->';
         }
     ?>
@@ -66,14 +67,13 @@
     </script>
     <script type="text/javascript" src="app.js"></script>
 </html>
-
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $img = $_POST['img'];
     $id = $_POST['id'];
     $img = substr(explode(";",$img)[1], 7);
-    $target=$id.'.png';
+    $target=$id.$time.'.jpg';
     file_put_contents('img/'.$target, base64_decode($img)); 
 }
 ?>
