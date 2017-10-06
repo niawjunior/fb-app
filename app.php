@@ -1,12 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>App</title>
     <?php 
+    $id = $_GET['id'];
+
         if($_GET['id']){
             $title = $_GET['fname'];
             $url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
@@ -21,19 +22,15 @@
     <meta property="og:description" content="<?php echo  $text;?>" />
     <meta property="fb:app_id" content="1702339276748394" />
     <head>
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="jquery-1.12.4.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.5.2/dom-to-image.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
-        <script type="text/javascript" src="app.js"></script>
         <script src="html2canvas.min.js"></script>
         <link href="app.css" rel="stylesheet">
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.js"></script> -->
     </head>
-    
     <body>
         <div id="fb-root"></div>
         <div class="container" style="margin-top:5%">
@@ -65,11 +62,20 @@
         <br/>
         </div>
     </body>
+    <script>
+        document.getElementById('logo').src = 'img/'+<?php echo $_GET['id'];?>+'.jpg';
+    </script>
+    <script type="text/javascript" src="app.js"></script>
 </html>
-<script>
-document.getElementById('logo').src = 'img/'+<?php echo $_GET['id'];?>+'.jpg';
 
+<?php
 
-</script>
-
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $img = $_POST['img'];
+    $id = $_POST['id'];
+    $img = substr(explode(";",$img)[1], 7);
+    $target=$id.'.png';
+    file_put_contents('img/'.$target, base64_decode($img)); 
+}
+?>
 

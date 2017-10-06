@@ -12,8 +12,7 @@
     <meta property="og:description" content="hello" />
     <meta property="fb:app_id" content="1702339276748394" />
     <head>
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="jquery-1.12.4.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.5.2/dom-to-image.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>

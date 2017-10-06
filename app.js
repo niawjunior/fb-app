@@ -45,34 +45,40 @@
 						});
 						$("#play").append(r);
 
-						for(let i in friends){
+						for (let i in friends) {
 							$('#friends').append('<img  width="50px" src="' + friends[i].picture.data.url + '" />');
 						}
 						$("#play").click(function () {
 							window.location.href = "app.php?id=" + response.id + "&url=" + encodeURIComponent(response.picture.data.url) + "&fname=" + response.first_name + "&lname=" + response.last_name;
 						});
 						$("#share").click(function () {
-							$(function(){
-								var captureArea = $("#capture-area"), 
-										capturedData = '';
-										$('body').scrollTop(0);
-										html2canvas(captureArea, {
-											 allowTaint: true,
-											 useCORS: true,
-											 taintTest: false,
-											 onrendered: function (canvas) {    
-												 $("#capture-area").html("").append(canvas);
-	
-												 }
-										 });
+							$(function () {
+								var captureArea = $("#capture-area");
+								html2canvas(captureArea, {
+									onrendered: function (canvas) {
+										$("#capture-area").html("").append(canvas);
+										var img = canvas.toDataURL("image/png", 1.0);
+										$.ajax({
+											type: 'POST',
+											url: "app.php",
+											data: {
+												"img": img,
+												"id": response.id
+											},
+											success: function (data) {
+											}
+										});
+									},
+									useCORS: true
+								});
 							});
-							FB.ui({
-								method: 'feed',
-								link: document.URL,
-								caption: '',
-							}, function(response){
-								window.location.href = "index.php";
-							});
+							// FB.ui({
+							// 	method: 'feed',
+							// 	link: document.URL,
+							// 	caption: '',
+							// }, function(response){
+							// 	window.location.href = "index.php";
+							// });
 						});
 					});
 				});
