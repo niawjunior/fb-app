@@ -69,17 +69,16 @@
 											}
 										});
 									},
-									
 									useCORS: true
 								});
 							});
-							// FB.ui({
-							// 	method: 'feed',
-							// 	link: document.URL,
-							// 	caption: '',
-							// }, function(response){
-							// 	window.location.href = "index.php";
-							// });
+							FB.ui({
+								method: 'feed',
+								link: document.URL,
+								caption: '',
+							}, function(response){
+								window.location.href = "index.php";
+							});
 						});
 					});
 				});

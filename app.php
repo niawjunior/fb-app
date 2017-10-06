@@ -11,11 +11,11 @@
         if($_GET['id']){
             $title = $_GET['fname'];
             $url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-            $images = 'http://' .$_SERVER['HTTP_HOST'].'/app/img/'.$_GET['id'].'.jpg';
-            $text = $_GET['fname'];
+            $images = 'http://' .$_SERVER['HTTP_HOST'].'/app/img/'.$_GET['id'].'.png';
+            $text = 'เช็คเพื่อนใหม่ของคุณได้ที่นี่ ->';
         }
     ?>
-    <meta property="og:title" content="<?php echo $title;?>" />
+    <meta property="og:title" content="<?php echo 'นี่คือเพื่อนใหม่ทั้ง 20 คนของคุณ '.$title;?>" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="<?php echo $url;?>" />
     <meta property="og:image" content="<?php echo $images;?>" />
@@ -24,7 +24,6 @@
     <head>
         <script src="jquery-1.12.4.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.5.2/dom-to-image.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
