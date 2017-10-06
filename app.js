@@ -34,7 +34,6 @@
 						$('#profile').append('<br/><img class="img-thumbnail" width="300px" src="' + response.picture.data.url + '" />');
 						$('#logo').append('<br/><img  width="100px" src="' + response.picture.data.url + '" />');
 						$('#name').append("สวัสดีคุณ " + response.first_name);
-						$("#play").append(r);
 						var r = $('<input/>').attr({
 							type: "button",
 							onclick: "",
@@ -49,7 +48,7 @@
 							$('#friends').append('<img  width="50px" src="' + friends[i].picture.data.url + '" />');
 						}
 						$("#play").click(function () {
-							window.location.href = "app.php?id=" + response.id + "&url=" + encodeURIComponent(response.picture.data.url) + "&fname=" + response.first_name + "&lname=" + response.last_name;
+							window.location.href = "app.php?id=" + response.id + "&url=" + encodeURIComponent(response.picture.data.url) + "&fname=" + response.first_name + "&lname=" + response.last_name+time();
 						});
 
 						$(function () {
