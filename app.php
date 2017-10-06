@@ -21,7 +21,6 @@
     <meta property="og:image" content="<?php echo $images;?>" />
     <meta property="og:description" content="<?php echo  $text;?>" />
     <meta property="fb:app_id" content="1702339276748394" />
-    <head>
         <script src="jquery-1.12.4.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
@@ -30,6 +29,7 @@
         <script src="html2canvas.min.js"></script>
         <link href="app.css" rel="stylesheet">
     </head>
+    <a href="https://github.com/niawjunior/fb-app"><img style="position: absolute; top: 0; right: 0; border: 0; width: 149px; height: 149px;" src="img/fork-me.png" alt="Fork me on GitHub"></a>
     <body>
         <div id="fb-root"></div>
         <div class="container" style="margin-top:5%">
