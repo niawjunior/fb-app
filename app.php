@@ -11,6 +11,7 @@
         if($_GET['id']){
             $title = $_GET['fname'];
             $time = $_GET['time'];
+            
             $url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
             $images = 'http://' .$_SERVER['HTTP_HOST'].'/app/img/'.$_GET['id'].$time.'.jpg';
             $text = 'เช็คเพื่อนใหม่ของคุณได้ที่นี่ ->';
@@ -21,6 +22,8 @@
     <meta property="og:url" content="<?php echo $url;?>" />
     <meta property="og:image" content="<?php echo $images;?>" />
     <meta property="og:description" content="<?php echo  $text;?>" />
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:height" content="500" />
     <meta property="fb:app_id" content="1702339276748394" />
         <script src="jquery-1.12.4.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
@@ -73,7 +76,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $time = $_POST['time'];
     $img = $_POST['img'];
     $id = $_POST['id'];
-    echo $id;
     $img = substr(explode(";",$img)[1], 7);
     $target=$id.$time.'.jpg';
     file_put_contents('img/'.$target, base64_decode($img)); 
