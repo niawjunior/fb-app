@@ -10,8 +10,9 @@
     $id = $_GET['id'];
         if($_GET['id']){
             $title = $_GET['fname'];
+            $time = $_GET['time'];
             $url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-            $images = 'http://' .$_SERVER['HTTP_HOST'].'/app/img/'.$_GET['id'].'share.jpg';
+            $images = 'http://' .$_SERVER['HTTP_HOST'].'/app/img/'.$_GET['id'].$time.'.jpg';
             $text = 'เช็คเพื่อนใหม่ของคุณได้ที่นี่ ->';
         }
     ?>
@@ -45,7 +46,7 @@
                     <div id="content_page_data">
                         <div id="capture-area" style="box-shadow: 10px 10px 5px #1d2935; display:block;color:#000;">
                         <br/>
-                        <h4 style="margin-top:2%;text-align: left;margin-left:7%;">สวัสดีเพื่อนใหม่ทั้ง 20 คน</h4>
+                        <h4 style="margin-top:2%;text-align: left;margin-left:7%;">สวัสดีเพื่อนใหม่ทั้ง 25 คน</h4>
                         <div id="logo"></div>
                         <div style="margin-bottom:2%;margin-top:2%" id="friends"></div>
                         </div>
@@ -69,11 +70,14 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $time = $_POST['time'];
     $img = $_POST['img'];
     $id = $_POST['id'];
+    echo $id;
     $img = substr(explode(";",$img)[1], 7);
-    $target=$id.'share.jpg';
+    $target=$id.$time.'.jpg';
     file_put_contents('img/'.$target, base64_decode($img)); 
 }
 ?>
 
+<input id="log_time" type="text" value="<?php echo $time?>" style="display:none">

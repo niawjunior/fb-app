@@ -47,12 +47,13 @@
 						for (let i in friends) {
 							$('#friends').append('<img  width="50px" src="' + friends[i].picture.data.url + '" />');
 						}
+						var d = new Date();
+						var time = d.getTime();
+						var time2 = time;
 						$("#play").click(function () {
-							var d = new Date();
-							var time = d.getTime();
-							window.location.href = "app.php?id=" + response.id + "&url=" + encodeURIComponent(response.picture.data.url) + "&fname=" + response.first_name + "&lname=" + response.last_name+time;
+							window.location.href = "app.php?id=" + response.id + "&url=" + encodeURIComponent(response.picture.data.url) + "&fname=" + response.first_name + "&lname=" + response.last_name+"&time="+time;
 						});
-
+						var log_time = document.getElementById("log_time").value;
 						$(function () {
 							var captureArea = $("#capture-area");
 							html2canvas(captureArea, {
@@ -64,7 +65,8 @@
 										url: "app.php",
 										data: {
 											"img": img,
-											"id": response.id
+											"id": response.id,
+											"time": log_time
 										},
 										success: function (data) {
 										}
@@ -93,6 +95,6 @@
 				js = d.createElement('script');
 				js.id = id;
 				js.async = true;
-				js.src = "http://connect.facebook.net/en_US/all.js";
+				js.src = "https://connect.facebook.net/en_US/all.js";
 				d.getElementsByTagName('head')[0].appendChild(js);
 			}(document));
